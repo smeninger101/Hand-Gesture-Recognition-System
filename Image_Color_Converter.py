@@ -9,11 +9,13 @@ path = r'C:\Users\smeni\OneDrive\Desktop\Fall_2020_Classes\Capstone\asl-alphabet
 #The Destination Path to put the Images in a new folder
 dstpath = r'C:\Users\smeni\OneDrive\Desktop\Fall_2020_Classes\Capstone\asl-alphabet\asl_alphabet_train_resize\A' 
 
-#Make a directory
-#If directory already exists, say displayed message
 try:
+    
+    #Make a directory
     makedirs(dstpath)
 except:
+    
+    #If directory already exists, say displayed message
     print ("Directory already exist, images will be written in directory folder")
 
 # Folder won't used
