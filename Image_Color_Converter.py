@@ -38,6 +38,7 @@ for image in files:
         
         #Put the new images in the Destination Path
         cv2.imwrite(dstPath,image)
+        
     except:
         
         #If the images won't convert, say displayed message
