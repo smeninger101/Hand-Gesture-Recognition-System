@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#Imports
 import cv2
 import keras
 import os
