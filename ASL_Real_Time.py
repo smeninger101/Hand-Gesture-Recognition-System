@@ -21,6 +21,7 @@ camera.set(640,480)
 #Prediction Letter Font
 font = cv2.FONT_HERSHEY_SIMPLEX
 
+#Dimensions of Blackboard
 x, y, w, h = 70, 70, 200, 200
 
 #Camera reads the frame
@@ -109,14 +110,20 @@ while True:
         letter = 'nothing'
     elif asl_letter_prediction[0][28] == max(asl_letter_prediction[0]):
         letter = 'space'
-        
-    blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
-    cv2.putText(blackboard, letter, (30, 200), cv2.FONT_HERSHEY_TRIPLEX, 1.3, (255, 255, 255))
-    #cv2.putText(frame, letter, (320,55), font, 2 , (255,255,255), 3, cv2.LINE_AA)
-    cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
-    res = np.hstack((frame, blackboard))
-  
     
+    #Creating the Blackboard
+    blackboard = np.zeros((480, 640, 3), dtype=np.uint8)
+    
+    #Putting text into the Blackboard
+    cv2.putText(blackboard, letter, (30, 200), cv2.FONT_HERSHEY_TRIPLEX, 1.3, (255, 255, 255))
+    
+    #cv2.putText(frame, letter, (320,55), font, 2 , (255,255,255), 3, cv2.LINE_AA)
+    
+    #Creating a rectangle to fit the Region of Interest
+    cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
+    
+    #Combines the camera feed with the Blackboard next to it
+    res = np.hstack((frame, blackboard))
     
     #Show frame
     cv2.imshow('Camera Feed',frame)
@@ -124,7 +131,8 @@ while True:
     #Show Region of Interest where it's just my hand frame
     cv2.imshow('Region of Interest',region_of_interest)
     
-    cv2.imshow('Test', res)
+    #Shows the camera feed and the Region of Interest when running the program
+    cv2.imshow('Real Time Implementation', res)
     
     #Waitkey to break program
     k = cv2.waitKey(10) & 0xFF
