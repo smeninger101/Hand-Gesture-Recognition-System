@@ -113,8 +113,6 @@ while True:
     #Putting text into the Blackboard
     cv2.putText(blackboard, letter, (30, 200), cv2.FONT_HERSHEY_TRIPLEX, 1.3, (255, 255, 255))
     
-    #cv2.putText(frame, letter, (320,55), font, 2 , (255,255,255), 3, cv2.LINE_AA)
-    
     #Creating a rectangle to fit the Region of Interest
     cv2.rectangle(frame, (x,y), (x+w, y+h), (255,0,0), 2)
     
