@@ -4,7 +4,7 @@ import numpy as np
 from keras.models import load_model
 
 
-# Disable scientific notation for clarity
+#Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
 
 #Load ASL Model
@@ -31,16 +31,11 @@ x, y, w, h = 70, 70, 200, 200
 while True:
     ret, frame = camera.read()
     frame = cv2.flip(frame,1)
-    region_of_interest = frame[70:270,70:270]
-    '''ASLmask = cv2.cvtColor(region_of_interest, cv2.COLOR_BGR2HSV)
-    result = cv2.bitwise_and(region_of_interest,mask)'''
-    
+    region_of_interest = frame[70:270,70:270]  
 
 #Resizes the array to 64 x 64
     asl_image = cv2.resize(region_of_interest,(64,64))  #roi.resize((224, 224))
     asl_image_array = np.asarray(asl_image)
-    
-
 
 #Normalize the image
     normalized_image_array = (asl_image_array.astype(np.float32) / 127.0) - 1
