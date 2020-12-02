@@ -19,7 +19,7 @@ except:
     #If directory already exists, say displayed message
     print ("Directory already exist, images will be written in directory folder")
 
-# Folder won't used
+#Folder won't be used
 files = [f for f in listdir(path) if isfile(join(path,f))] 
 
 for image in files:
