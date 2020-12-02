@@ -101,7 +101,7 @@ def create_model():
     #Add Pooling Layer
     model.add(MaxPooling2D(pool_size = [3,3]))
     
-    #Add Regularization Layer(new)
+    #Add Regularization Layer
     model.add(Dropout(0.5))
     
     #Add Model Layers
@@ -111,7 +111,7 @@ def create_model():
     #Add Pooling Layer
     model.add(MaxPooling2D(pool_size = [3,3]))
     
-    #Add Normailization Layer
+    #Add Normalization Layer
     model.add(BatchNormalization())
     
     #Flatten the images
