@@ -78,7 +78,7 @@ def load_data():
 X_train, X_test, Y_train, Y_test = load_data()
 
 
-#Creatung my model
+#Creating my model
 def create_model():
     
     #Creating a Sequential Model
